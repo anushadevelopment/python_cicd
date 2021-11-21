@@ -1,0 +1,14 @@
+stages:
+  -test
+
+test_app:
+  image: python:latest
+  stage: test
+  before_script:
+  - python -v
+  - pip install virtualenv
+  - virtualenv env
+  - source env/bin/activate
+  script:
+  - pip install Flask
+  - python test.py
